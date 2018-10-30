@@ -27,6 +27,8 @@ public class VisitDetails {
 
     private int petId;
 
+    private int vetId;
+
     private String date;
 
     private String description;

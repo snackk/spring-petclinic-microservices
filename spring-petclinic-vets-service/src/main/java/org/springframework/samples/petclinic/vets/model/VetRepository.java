@@ -16,6 +16,9 @@
 package org.springframework.samples.petclinic.vets.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 /**
  * Repository class for <code>Vet</code> domain objects All method names are compliant with Spring Data naming
@@ -28,4 +31,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Maciej Szarlinski
  */
 public interface VetRepository extends JpaRepository<Vet, Integer> {
+
+    /**
+     * Retrieve a {@link Vet} from the data store by id.
+     * @param id the id to search for
+     * @return the {@link Vet} if found
+     */
+    @Transactional(readOnly = true)
+    Optional<Vet> findById(Integer id);
+
 }
