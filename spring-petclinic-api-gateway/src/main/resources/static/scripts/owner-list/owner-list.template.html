@@ -9,6 +9,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th class="hidden-sm hidden-xs">Address</th>
         <th>City</th>
@@ -18,6 +19,7 @@
     </thead>
 
     <tr ng-repeat="owner in $ctrl.owners | filter:$ctrl.query track by owner.id">
+        <td>{{owner.id}}</td>
         <td>
             <a ui-sref="ownerDetails({ ownerId: owner.id })">
                 {{owner.firstName}} {{owner.lastName}}
