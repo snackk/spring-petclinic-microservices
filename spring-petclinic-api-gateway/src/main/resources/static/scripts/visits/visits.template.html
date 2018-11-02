@@ -4,6 +4,10 @@
 
     <h3>Available Hours</h3>
     <table class="table">
+        <tr>
+            <th>Vet</th>
+            <th>Date</th>
+        </tr>
         <tr ng-repeat="vet in $ctrl.vetList">
             <td class="col-sm-2">{{vet.firstName}} {{vet.lastName}}</td>
             <td style="white-space: pre-line" ng-repeat="date in vet.availableHours">{{date.timeDate + ' '}}</td>
@@ -12,7 +16,12 @@
 
     <div class="form-group">
         <label>Date</label>
-        <input type="date" class="form-control" ng-model='$ctrl.date'/>
+        <input type="datetime" class="form-control" ng-model='$ctrl.date'/>
+    </div>
+
+    <div class="form-group">
+        <label>Vet</label>
+        <select ng-options="vet.id as vet.firstName for vet in $ctrl.vetList track by vet.id" ng-model="$ctrl.vetId"></select>
     </div>
 
     <div class="form-group">
@@ -28,8 +37,14 @@
 
 <h3>Previous Visits</h3>
 <table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Vet</th>
+    </tr>
     <tr ng-repeat="v in $ctrl.visits">
         <td class="col-sm-2">{{v.date}}</td>
         <td style="white-space: pre-line">{{v.description}}</td>
+        <td>TODO</td>
     </tr>
 </table>
