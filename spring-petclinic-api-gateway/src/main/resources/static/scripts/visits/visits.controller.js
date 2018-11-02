@@ -12,6 +12,10 @@ angular.module('visits')
             self.visits = resp.data;
         });
 
+        $http.get('api/vet/vets').then(function (resp) {
+            self.vetList = resp.data;
+        });
+
         self.submit = function () {
             var data = {
                 date: $filter('date')(self.date, "yyyy-MM-dd"),

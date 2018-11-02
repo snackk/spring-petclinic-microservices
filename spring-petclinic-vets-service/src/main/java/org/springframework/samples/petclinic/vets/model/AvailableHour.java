@@ -23,10 +23,6 @@ public class AvailableHour {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime timeDate;
 
-    @ManyToOne
-    @JoinColumn(name = "vet_id")
-    private Vet vet;
-
     public AvailableHour() {}
 
     public Integer getId() {
@@ -35,14 +31,6 @@ public class AvailableHour {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Vet getVet() {
-        return vet;
-    }
-
-    public void setVet(Vet vet) {
-        this.vet = vet;
     }
 
     public LocalDateTime getTimeDate() {

@@ -13,3 +13,5 @@ target/
 
 # Branch switching
 generated/
+
+*.log
