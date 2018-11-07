@@ -10,14 +10,15 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.message.utils.config.dto.VetStatusDTO;
+import org.springframework.message.utils.service.VetStatusProducerService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class VetStatusSenderConfig {
+public class VetStatusProducerConfig {
 
-    @Value("${kafka.bootstrap-servers}")
+    @Value("${kafka.bootstrap-server}")
     private String bootstrapServers;
 
     @Bean
@@ -41,7 +42,7 @@ public class VetStatusSenderConfig {
     }
 
     @Bean
-    public Sender sender() {
-        return new Sender();
+    public VetStatusProducerService sender() {
+        return new VetStatusProducerService();
     }
 }

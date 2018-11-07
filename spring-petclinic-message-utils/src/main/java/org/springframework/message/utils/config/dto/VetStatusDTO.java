@@ -6,7 +6,12 @@ public class VetStatusDTO {
 
     private boolean status;
 
+    public VetStatusDTO() {
+        super();
+    }
+
     public VetStatusDTO(int id, boolean status) {
+        super();
         this.id = id;
         this.status = status;
     }
@@ -25,5 +30,10 @@ public class VetStatusDTO {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "VetStatusDTO [id=" + this.id + ", status=" + this.status + "]";
     }
 }
