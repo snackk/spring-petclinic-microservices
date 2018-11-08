@@ -9,12 +9,19 @@ public class VetStatusConsumerService {
 
     private CountDownLatch latch = new CountDownLatch(1);
 
+    private VetStatusDTO vetStatusDTO;
+
     public CountDownLatch getLatch() {
         return latch;
     }
 
     @KafkaListener(topics = "${kafka.topic.vetstatus}")
     public void receive(VetStatusDTO vetStatusDTO) {
+        this.vetStatusDTO = vetStatusDTO;
         latch.countDown();
+    }
+
+    public VetStatusDTO getVetStatusDTO() {
+        return vetStatusDTO;
     }
 }

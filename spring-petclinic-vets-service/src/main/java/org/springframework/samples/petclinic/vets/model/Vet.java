@@ -48,6 +48,10 @@ public class Vet {
     @NotEmpty
     private String lastName;
 
+    @Column(name = "status")
+    @NotEmpty
+    private boolean status;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"), inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties;
@@ -78,6 +82,14 @@ public class Vet {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     protected Set<Specialty> getSpecialtiesInternal() {
@@ -112,5 +124,4 @@ public class Vet {
     public void addAvailableHour(AvailableHour availableHour) {
         getAvailableHours().add(availableHour);
     }
-
 }

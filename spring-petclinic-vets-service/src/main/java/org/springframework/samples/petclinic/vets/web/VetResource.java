@@ -16,12 +16,12 @@
 package org.springframework.samples.petclinic.vets.web;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.vets.config.dto.VetStatusDTO;
 import org.springframework.samples.petclinic.vets.model.Vet;
 import org.springframework.samples.petclinic.vets.model.VetRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.samples.petclinic.vets.service.VetStatusProducerService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,7 +37,10 @@ import java.util.List;
 @RequiredArgsConstructor
 class VetResource {
 
-    private final VetRepository vetRepository;
+    private VetRepository vetRepository;
+
+    @Autowired
+    private VetStatusProducerService vetStatusProducerService;
 
     @GetMapping
     public List<Vet> showResourcesVetList() {
@@ -47,5 +50,12 @@ class VetResource {
     @GetMapping("vets/{vetId}")
     Vet getVetById(@PathVariable("vetId") int vetId) {
         return vetRepository.findById(vetId).get();
+    }
+
+    @PostMapping("status/{vetId}")
+    void changeVetStatus(@PathVariable("vetId") int vetId) {
+        final Vet vet = vetRepository.findById(vetId).get();
+
+        vetStatusProducerService.sendMessage(new VetStatusDTO(vetId, !vet.getStatus()));
     }
 }
