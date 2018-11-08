@@ -55,6 +55,9 @@ public class Visit {
     @Column(name = "vet_id")
     private int vetId;
 
+    @Column(name = "cancelled")
+    private boolean isCancelled;
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +84,13 @@ public class Visit {
 
     public void setVetId(final int vetId) {
         this.vetId = vetId;
+    }
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
     }
 }

@@ -32,4 +32,6 @@ public class VisitDetails {
     private String date;
 
     private String description;
+
+    private boolean isCancelled;
 }

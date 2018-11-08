@@ -17,7 +17,7 @@
     <properties>
         <docker.image.exposed.port>8081</docker.image.exposed.port>
         <docker.image.dockerfile.dir>${basedir}/../docker</docker.image.dockerfile.dir>
-        <spring-kafka.version>2.2.0.RELEASE</spring-kafka.version>
+        <spring-kafka.version>2.1.10.RELEASE</spring-kafka.version><!-- Latest version of kafka to support Spring-boot 2.0.x -->
     </properties>
 
 	<dependencies>

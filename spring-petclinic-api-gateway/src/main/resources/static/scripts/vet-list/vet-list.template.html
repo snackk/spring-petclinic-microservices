@@ -8,7 +8,7 @@
     </thead>
 
     <tr ng-repeat="vet in $ctrl.vetList">
-        <td>{{vet.firstName}} {{vet.lastName}}</td>
+        <td>{{vet.firstName}} {{vet.lastName}} {{vet.status}}</td>
         <td><span ng-repeat="specialty in vet.specialties">{{specialty.name + ' '}}</span></td>
     </tr>
 </table>

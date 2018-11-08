@@ -6,7 +6,7 @@ CREATE TABLE vets (
   id         INTEGER IDENTITY PRIMARY KEY,
   first_name VARCHAR(30),
   last_name  VARCHAR(30),
-  status     TINYINT(1)
+  status     TINYINT(1) DEFAULT '1'
 );
 CREATE INDEX vets_last_name ON vets (last_name);
 

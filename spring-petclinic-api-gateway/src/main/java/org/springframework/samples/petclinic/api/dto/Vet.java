@@ -18,6 +18,8 @@ public class Vet {
 
     private String lastName;
 
+    private boolean status;
+
     private final List<AvailableHour> availableHours = new ArrayList<>();
 
     private final List<Speciality> specialties = new ArrayList<>();
